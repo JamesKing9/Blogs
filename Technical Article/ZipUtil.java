@@ -283,6 +283,7 @@ public class ZipUtil {
 			throws FileNotFoundException, IOException {
 		rootpath = rootpath + (rootpath.trim().length() == 0 ? "" : File.separator) + resFile.getName();
 		// rootpath = new String(rootpath.getBytes("8859_1"), "GB2312");
+//		如果需要压缩的是一个文件夹
 		if (resFile.isDirectory()) {
 			File[] fileList = resFile.listFiles();
 			for (File file : fileList) {
