@@ -34,10 +34,16 @@
 
 
 
-7.7 Line Input and Output
+## 7.7 Line Input and Output
+
+The standard library provides an input routine fgets that is similar to the getline function that we have used in earlier chapters:
+
+```c
+char * fgets(char *line, int maxline, FILE *fp)
+```
+
+fgets reads the next input line (including the newline) from file fp into the character array line; at most maxline - 1 characters will be read. The
 
 
 
-
-
-7. 8Miscellaneous Functions
+7.8 Miscellaneous Functions
