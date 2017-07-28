@@ -195,3 +195,42 @@ fgets reads the next input line (including the newline) from file fp into the ch
 
 
 7.8 Miscellaneous Functions
+
+
+
+# Appendix B - Standard Library
+
+
+
+
+
+## B.3 String Functions: <string.h>
+
+
+
+### bcmp() : 比较字符串是否相等
+
+函数原型：
+
+```c
+int bcmp(const void *s1, const void *s2, int n);
+```
+
+
+
+```c
+# include <stdio.h>
+# include <string.h>
+
+void main() {
+  char *s1 = "Golden Global View";
+  char *s2 = "Golden global view";
+  clrscr();
+  if(!bcmp(s1, s2, 7))
+    printf("s1 equal to s2 in first 7 bytes");
+  else 
+    printf("s1 not equal to s2 in first 7 bytes");
+  if(!)
+}
+```
+
