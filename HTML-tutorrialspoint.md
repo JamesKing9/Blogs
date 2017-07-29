@@ -9,7 +9,7 @@ Originally, HTML was developed with the intent of defining the structure of docu
 
 Now, HTML  is being widely used to format web pages with the help of different tags available in HTML language.
 
-**Basic HTML Document**
+## Basic HTML Document 
 
 Following is an example of an HTML document -
 
@@ -33,7 +33,7 @@ Save it in an HTML file `test.htm` using your favorite text editor. Finally open
 
 
 
-**HTML Tags**
+## HTML Tags
 
 As told earlier, HTML is a markup language and makes use of various tags to format the content. These tags are enclosed within angle braces `<Tag Name>`. Except few tags, most of the tags have their corresponding closing tags. For example, `<html>` has its closing tag `</html>` and `<body>` tag has its closing tag `</body>` tag etc.
 
@@ -43,7 +43,7 @@ World Wide Web Consortium (W3C) recommends to use lowercase tags starting from H
 
 
 
-**HTML Document Structure**
+## HTML Document Structure
 
 A typical HTML document will have the following structure - 
 
