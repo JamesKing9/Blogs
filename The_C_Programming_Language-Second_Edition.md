@@ -81,6 +81,79 @@ main() {
 
 
 
+# Chapter 4
+
+
+
+
+
+## 4.7 Register Variables
+
+A `register` declaration advises the compiler that the variable in question will be heavily used. The idea is that `register` variables are to be placed in machine registers, which may result in smaller and faster programs. But compilers are free to ignore the advice.
+
+The `register` declaration looks like
+
+```c
+register int x;
+register char c;
+```
+
+
+
+
+
+
+
+## 4.9 Initialization
+
+Initialization has been mentioned in passing many times so far, but always peripherally to some other topic. This section summarizes some of the rules, now that we have discussed the various storage classes.
+
+
+
+Scalar variables may be initialized when they are defined, by following the name with an equals sign and an expression:
+
+```c
+int x = 1;
+char squota = '\'';
+long day = 1000L * 60L * 60L * 24L; /* milliseconds/day */	
+```
+
+For external and static variables, the initializer must be a constant expression; the initialization is done once, conceptionally before the program begins execution. For automatic and register variables, the initializer is not restricted to being a constant: it may be any expression involving previously defined values, even function calls. For example, the initialization of the binary search program in <u>Section 3.3</u> could be written as 
+
+```c
+int binsearch(int x, int v[], int n) {
+  int low = 0;
+  int high = n - 1; /* "-" : minus */
+  int mid;
+  ...
+}
+```
+
+instead of 
+
+```c
+int low, high, mid;
+
+low = 0;
+high = n - 1;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Chapter 7.  Input and Output
 
 Input and output are not part of the C language itself, so we have not emphasized them in our presentation thus far. Nonetheless, programs interact with their environment in much more complicated ways than those we have shown before.
