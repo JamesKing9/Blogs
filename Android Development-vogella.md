@@ -52,8 +52,8 @@ Now let's see this in action by creating a new project.
 ## 1  Creating New Project
 
 1.  Create a new project in Android Studio from **File ⇒ New Project**. When it prompts you to select the default activity, select **Empty Activity** and proceed.
-2.   Download this [res.zip](http://api.androidhive.info/cardview/res.zip) and add them to your projects res folder. This res folder contains few **album covers** and **icons** required for this project.
-3. Add the below strings, colors and dimen resources to **strings.xml**, **colors.xml** and **dimens.xml** files.
+2.  Download this [res.zip](http://api.androidhive.info/cardview/res.zip) and add them to your projects res folder. This res folder contains few **album covers** and **icons** required for this project.
+3.  Add the below strings, colors and dimen resources to **strings.xml**, **colors.xml** and **dimens.xml** files.
 
 **strings.xml**
 
@@ -241,6 +241,168 @@ public class Album {
       </android.support.v7.widget.CardView>
       
 </LinearLayout>
+```
+
+7.  Create a menu file named **menu_album.xml** under **res\menu** folder. This menu will be shown as popup menu on tapping on dots icons on each album card item.
+
+**menu_album.xml**
+
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+	
+	<item
+		android:id="@+id/action_add_favourite"
+		android:orderInCategory="100"
+		android:title="@string/action_add_favourite" />
+	
+	<item
+		android:id="@+id/action_play_next"
+		android:orderInCategory="101"
+		android:title="@string/action_play_next" />
+	
+</menu>
+```
+
+
+
+8.  To render the `RecyclerView`, we need an adapter class which inflates the **album_card.xml** by keeping appropriate information. Create a class named **AlbumsAdapter.java** and add the below content.
+
+**AlbumsAdapter.java**
+
+```java
+package info.androidhive.cardview;
+
+import android.content.Context;
+import android.support.v7.widget.PopupMenu;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+
+import java.util.List;
+
+public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHolder> {
+	private Context mContext;
+	private List<Album> albumList;
+	
+	public class MyViewHolder extends RecyclerView.ViewHolder {
+      public TextView title, count;
+      public ImageView thumbnail, overflow;
+      
+      public MyViewHolder(View view) {
+          super(view);
+          title = (TextView) view.findViewById(R.id.title);
+          count = (TextView) view.findViewById(R.id.count);
+          thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+          overflow = (ImageView) view.findViewById(R.id.overflow);
+      }
+	}
+	
+	public AlbumsAdapter(Context mContext, List<Album> albumList) {
+		this.mContext = mContext;
+		this.albumList = albumList;
+	}
+	
+	@Override
+	public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+		View itemView = LayoutInflater.from(parent.getContext())
+				.inflate(R.layout.album_card, parent, false);
+				
+		return new MyViewHolder(itemView);
+	}
+	
+	@Override
+	public void onBindViewHolder(final MyViewHolder holder, int position) {
+		Album album =albumList.get(position);
+		holder.title.setText(album.getName());
+		holder.count.setText(album.getNumOfSongs() + "songs");
+		
+		// loading album cover using Glide library
+		Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
+		
+		holder.overflow.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				showPopupMenu(holder.overflow);
+			}
+		});
+	}
+	
+	/**
+	 * Showing popup menu when tapping on 3 dots
+	 */
+	private void showPopupMenu(View view) {
+		// inflate menu
+		PopupMenu popup = new PopupMenu(mContext, view);
+		MenuInflater inflater = popup.getMenuInflater();
+		inflater.inflate(R.menu.menu_album, popup.getMenu);
+		popup.setOnMenuItemClickListener(new MyMenuItemClickListener());
+		popup.show();
+	}
+	
+	/**
+	 * Click listener for popup menu items
+	 */
+	class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
+		public MyMenuItemClickListener() {}
+		
+		@Override
+		public boolean onMenuItemClick(MenuItem menuItem) {
+			switch(menuItem.getItemId()) {
+				case R.id.action_add_favourite:
+					Toast.makeText(mContext, "Add to favourite", Toast.LENGTH_SHORT).show();
+					return true;
+				case R.id.action_play_next:
+					Toast.makeText(mContext, "Play next", Toast.LENGTH_SHORT).show();
+					return true;
+				default:
+			}
+			return false;
+		}
+	}
+	
+	@Override
+	public int getItemCount() {
+		return albumList.size();
+	}
+}
+```
+
+
+
+9.  Open the layout files main activity **activity_main.xml** and **content_main.xml** , add `AppBarLayout`, `CollapsingToolbarLayout`,  `Toolbar` and `RecyclerView`.
+
+**content_main.xml**
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="color/viewBg"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior"
+	tools:context="info.androidhive.cardview.MainActivtiy"
+	tools:showIn="@layout/activity_main">
+	
+	<android.support.v7.widget.RecyclerView 
+		android:id="@+id/recycler_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:clipToPadding="false"
+		android:scrollbar="vertical" />
+
+</RelativeLayout>
 ```
 
 
