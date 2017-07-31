@@ -10,6 +10,8 @@
 
 We can achieve good looking UI when `CardView` is combined with `RecyclerView`. In this article we are going to learn how to integrate `CardView` with `RecyclerView` by creating a beautiful music app that displays music albums with a cover image and title.
 
+
+
 ## How to Add CardView?
 
 To use the `CardView` in your app, add the `CardView` dependency in **build.gradle** and Sync the project.
@@ -23,10 +25,11 @@ dependencies {
 }
 ```
 
-Add the **<android.support.v7.widget.CardView>** widget to your layout and place other UI widgets like TextViews, ImageViews inside it. You can notice that the below CardView widget contains a single **TextView**.
+Add the **<android.support.v7.widget.CardView>** widget to your layout and place other UI widgets like **TextView**s, **ImageView**s inside it. You can notice that the below `CardView` widget contains a single **TextView**.
 
 ```xml
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
   
@@ -37,6 +40,7 @@ Add the **<android.support.v7.widget.CardView>** widget to your layout and place
         android:layout_width="250dp"
         android:layout_height="250dp"
         cardview:cardCornerRadius="4dp" />
+        
     	<TextView
         	android:text="Hello Card"
             android:layout_width="match_parent"
