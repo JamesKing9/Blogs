@@ -1,4 +1,4 @@
-
+   
 
 
 
@@ -52,7 +52,13 @@ Now let's see this in action by creating a new project.
 ## 1  Creating New Project
 
 1.  Create a new project in Android Studio from **File ⇒ New Project**. When it prompts you to select the default activity, select **Empty Activity** and proceed.
+
+    ​
+
 2.  Download this [res.zip](http://api.androidhive.info/cardview/res.zip) and add them to your projects res folder. This res folder contains few **album covers** and **icons** required for this project.
+
+    ​
+
 3.  Add the below strings, colors and dimen resources to **strings.xml**, **colors.xml** and **dimens.xml** files.
 
 **strings.xml**
@@ -106,6 +112,8 @@ Now let's see this in action by creating a new project.
 </resources>
 ```
 
+
+
 4.  Open **build.gradle** and add `CardView`, `RecyclerView` and `Glide` dependencies. `RecyclerView` is used to display the albums in grid manner. `CardView` is used to display single album item. `Glide` is used to display the album cover images.
 
 **build.gradle**
@@ -127,6 +135,8 @@ dependencies {
 	compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 ```
+
+
 
 5.  To create instance of a single album, we need a model class denoting the album properties like name, number of songs and cover image. So create a class named **Album.java** and add the below code.
 
@@ -173,6 +183,8 @@ public class Album {
 	}
 }
 ```
+
+
 
 6.  We also need an xml layout to display the album card. Create an xml layout named **album_card.xml** under res/layout. Here you can notice that I have added **<android.support.v7.widget.CardView>** and added all the album properties like name, number of songs and cover image inside it. I also add a 3 dot icon which shows a popup menu on tapping it.
 
@@ -243,7 +255,9 @@ public class Album {
 </LinearLayout>
 ```
 
-7.  Create a menu file named **menu_album.xml** under **res\menu** folder. This menu will be shown as popup menu on tapping on dots icons on each album card item.
+
+
+7.   Create a menu file named **menu_album.xml** under **res\menu** folder. This menu will be shown as popup menu on tapping on dots icons on each album card item.
 
 **menu_album.xml**
 
@@ -381,6 +395,92 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
 
 9.  Open the layout files main activity **activity_main.xml** and **content_main.xml** , add `AppBarLayout`, `CollapsingToolbarLayout`,  `Toolbar` and `RecyclerView`.
 
+**activity_main.xml**
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/main_content"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@android:color/white"
+	android:fitsSystemWindows="true" >
+	
+	<android.support.design.widget.AppBarLayout
+		android:id="@+id/appbar"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/detail_backdrop_height"
+		android:fitsSystemWindows="true"
+		android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+		
+		<android.support.design.wiget.CollapsingToolbarLayout
+			android:id="@+id/collapsing_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:fitsSystemWindows="true"
+			app:contentScrim="?attr/colorPrimary"
+			app:expandedTitleMarginEnd="64dp"
+			app:expandedTitleMarginStart="48dp"
+			app:expandedTitleTextAppearance="@android:color/transparent"
+			app:layout_scrollFlags="scroll|exitUntilCollapsed" >
+			
+			<RelativeLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				
+				<ImageView 
+					android:id="@+id/backdrop"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:fitsSystemWindows="true"
+					android:scaleType="centerCrop"
+					app:layout_collapseMode="parallax"/>
+				
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_centerInParent="true"
+					android:gravity="center_horizontal"
+					android:orientation="vertical">
+					
+					<TextView
+						android:id="@+id/love_music"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/backdrop_title"
+						android:textColor="@android:color/white"
+						android:textSize="@dimen/backdrop_title"/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/backdrop_subtitle"
+						android:textColor="@android:color/white"
+						android:textSize="@dimen/backdrop_subtitle"/>
+						
+				</LinearLayout>
+			</RelativeLayout>
+			
+			<android.support.v7.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				app:layout_collapseMode="pin"
+				app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+				
+		</android.support.design.wiget.CollapsingToolbarLayout>		
+      
+	</android.support.design.widget.AppBarLayout>
+    
+    <include layout="@layout/content_main" />
+    
+</android.support.design.widget.CoordinatorLayout>
+```
+
+
+
 **content_main.xml**
 
 ```xml
@@ -403,6 +503,195 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
 		android:scrollbar="vertical" />
 
 </RelativeLayout>
+```
+
+
+
+10.  Finally open **MainActivity.java** and do the necessary changes.
+
+-> `initCollapsingToolbar()` - Shows or hides the toolbar title when the toolbar is collapsed or expanded.
+
+-> `prepareAlbums()` - Adds sample albums data required for the recycler view.
+
+-> `GridLayoutManager` is used to display the RecyclerView in Grid manner instead of list.
+
+-> `GridSpacingItemDecoration` is used to give equal margins around RecyclerView grid items.
+
+-> `AlbumsAdapter` instance is created and assigned to RecyclerView which renders the CardView albums in grid fashion.
+
+**MainActivity.java**
+
+```java
+package info.androidhive.cardview;
+
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+	private RecyclerView recyclerView;
+	private AlbumsAdapter adapter;
+	private List<Album> albumList;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        
+        initCollapsingToolbar();
+        
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        
+        albumList = new ArrayList<>();
+        adapter = new AlbumsAdapter(this, albumList);
+        
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+        
+        prepareAlbums();
+        
+        try {
+        	Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+	}
+	
+	/**
+	 * Initializing collapsing toolbar will show and hide the toolbar title on scroll
+	 */
+	private void initCollapsingToolbar() {
+		final CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+		collapsingToolbar.setTitle(" ");
+		AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+		appBarLayout.setExpanded(true);
+		
+		// hiding & showing the title when toolbar expanded & collapsed
+		appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+			boolean isShow = false;
+			int scrollRange = -1;
+			
+			@Override
+			public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+				if (scrollRange == -1) {
+					scrollRange = appBarLayout.getTotalScrollRange();
+				}
+				if (scrollRange + verticalOffset == 0) {
+					collapsingToolbar.setTitle(getString(R.string.app_name));
+					isShow = true;
+				} else if (isShow) {
+					collapsingToolbar.setTitle(" ");
+					isShow = false;
+				}
+			}
+		});
+	}
+	
+	/**
+	 * Adding few albums for testing
+	 */
+	private void prepareAlbums() {
+		int[] covers = new int[]{
+				R.drawable.album1,
+				R.drawable.album2,
+				R.drawable.album3,
+				R.drawable.album4,
+				R.drawable.album5,
+				R.drawable.album6,
+				R.drawable.album7,
+				R.drawable.album8,
+				R.drawable.album9,
+				R.drawable.album10,
+				R.drawable.album11};
+				
+		Album a = new Album("True Romance", 13, covers[0]);
+		albumList.add(a);
+		
+		a = new Album("Xscpae", 8, covers[1]);
+		albumList.add(a);
+		
+		a = new Album("Maroon 5", 11, covers[2]);
+        albumList.add(a);
+ 
+        a = new Album("Born to Die", 12, covers[3]);
+        albumList.add(a);
+ 
+        a = new Album("Honeymoon", 14, covers[4]);
+        albumList.add(a);
+ 
+        a = new Album("I Need a Doctor", 1, covers[5]);
+        albumList.add(a);
+ 
+        a = new Album("Loud", 11, covers[6]);
+        albumList.add(a);
+ 
+        a = new Album("Legend", 14, covers[7]);
+        albumList.add(a);
+ 
+        a = new Album("Hello", 11, covers[8]);
+        albumList.add(a);
+ 
+        a = new Album("Greatest Hits", 17, covers[9]);
+        albumList.add(a);
+        
+        adapter.notifyDataSetChanged();
+	}
+	
+	/**
+	 * RecyclerView item decoration - give equal margin around grid item
+	 */
+	public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+		private int spanCount;
+		private int spacing;
+		private boolean includeEdge;
+		
+		public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
+			this.spanCount = spanCount;
+			this.spacing = spacing;
+			this.includeEdge = includeEdge;
+		}
+		
+		@Override
+		public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+			int position = parent.getChildAdapterPosion(view);  // item position
+			int column = position % spanCount;  // item column
+			
+			if (includeEdge) {
+				outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
+				outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
+				
+				if (position < spanCount) {  // top edge
+					outRect.top = spacing;
+				}
+				outRect.bottom = spacing;  // item bottom
+			} else {
+				outRect.left = column * spacing / spanCount;  // column * ((1f / spanCount) * spacing)
+				outRect.right = spacing - (column + 1) * spacing /spanCount; // spacing - (column + 1) * ((1f / spanCount) * spacing)
+				if (position >= spanCount) {
+					outRect.top = spacing; // item top
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Converting dp to pixel
+	 */
+	private int dpToPx(int dp) {
+		Resources r = getResources();
+		// Math.round() -> "四舍五入"运算
+		return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+	} 
+}
 ```
 
 
