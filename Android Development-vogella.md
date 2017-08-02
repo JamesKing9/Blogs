@@ -254,7 +254,7 @@ public class Album {
         
         </RelativeLayout>
       
-      </android.support.v7.widget.CardView>
+	</android.support.v7.widget.CardView>
       
 </LinearLayout>
 ```
@@ -313,16 +313,16 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
 	private List<Album> albumList;
 	
 	public class MyViewHolder extends RecyclerView.ViewHolder {
-      public TextView title, count;
-      public ImageView thumbnail, overflow;
+    	public TextView title, count;
+      	public ImageView thumbnail, overflow;
       
-      public MyViewHolder(View view) {
-          super(view);
-          title = (TextView) view.findViewById(R.id.title);
-          count = (TextView) view.findViewById(R.id.count);
-          thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-          overflow = (ImageView) view.findViewById(R.id.overflow);
-      }
+      	public MyViewHolder(View view) {
+        	super(view);
+          	title = (TextView) view.findViewById(R.id.title);
+          	count = (TextView) view.findViewById(R.id.count);
+          	thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+          	overflow = (ImageView) view.findViewById(R.id.overflow);
+      	}
 	}
 	
 	public AlbumsAdapter(Context mContext, List<Album> albumList) {
