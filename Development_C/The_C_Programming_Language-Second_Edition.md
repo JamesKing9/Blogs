@@ -1,6 +1,49 @@
+# Glossary
+
+H~2~O
+
+<u>decimal point</u>:  小数点
+
+---
 
 
-# 1
+
+# Chapter 1:  A Tutorial Introduction
+
+
+
+## 1.2  Variables and Arithmetic Expressions
+
+
+
+Width and  precision may be omitted from a specification: `%6f` says that the number is to be at least six characters wide; `%.2f` specifies two characters after the decimal point, 
+
+## 1.3 The "for" statement
+
+There are plenty of different ways to write a program for a particular task. Let's try a variation on the temperature converter.
+
+```c
+#include <stdio.h>
+
+/* print Fahrenheit-Celsius table */
+main() 
+{
+	int fahr;
+	
+	for (fahr = 0; fahr <= 300; fahr = fahr + 20)
+		printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
+}
+```
+
+
+
+## 1.4  Symbolic Constants
+
+
+
+## 1.5  Character Input and Output
+
+
 
 
 
@@ -78,6 +121,30 @@ main() {
 ```
 
 `printf` uses `%f` for both `float` and `double`; `%.0f` suppresses the printing of the decimal point and the fraction part, which is zero.
+
+
+
+## 1.6  Arrays
+
+
+
+## 1.7  Functions
+
+
+
+## 1.8  Arguments - Call by Value
+
+
+
+## 1.9  Character Arrays
+
+
+
+## 1.10  External Variables and Scope
+
+
+
+---
 
 
 
