@@ -16,7 +16,16 @@ H~2~O
 
 
 
-Width and  precision may be omitted from a specification: `%6f` says that the number is to be at least six characters wide; `%.2f` specifies two characters after the decimal point, 
+Width and  precision may be omitted from a specification: `%6f` says that the number is to be at least six characters wide; `%.2f` specifies two characters after the decimal point,  but width is not constrained; and `%f` merely says to print the number as floating point.
+
+| %d   | print as decimal integer                 |
+| ---- | ---------------------------------------- |
+| %6d  | print as decimal integer, at least 6 characters |
+| %f   | print as floating point                  |
+| %6f  | print as floating point, at least 6 characters wide |
+|      |                                          |
+
+
 
 ## 1.3 The "for" statement
 
