@@ -12,7 +12,7 @@ We can achieve good looking UI when `CardView` is combined with `RecyclerView`. 
 
 
 
-## How to Add CardView?
+# How to Add CardView?
 
 To use the `CardView` in your app, add the `CardView` dependency in **build.gradle** and Sync the project.
 
@@ -53,7 +53,7 @@ Add the **<android.support.v7.widget.CardView>** widget to your layout and place
 
 Now let's see this in action by creating a new project.
 
-## 1  Creating New Project
+# 1  Creating New Project
 
 1.  Create a new project in Android Studio from **File ⇒ New Project**. When it prompts you to select the default activity, select **Empty Activity** and proceed.
 
@@ -494,7 +494,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="color/viewBg"
+	android:background="@color/viewBg"
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 	tools:context="info.androidhive.cardview.MainActivtiy"
 	tools:showIn="@layout/activity_main">
@@ -704,13 +704,53 @@ If you run the app now, you can see the album CardViews displayed in a grid.
 
 <img src="https://www.androidhive.info/wp-content/uploads/2016/05/android-integrating-cardview-and-recyclerview-music-app.png" style="height:520px"> 
 
+---
 
 
 
+## Debug
+
+error:
+
+```mark
+Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.
+```
 
 
 
+resolve:
 
+当在activity中调用了**setSupportActionBar(toolbar);** 
+
+同时，AndroidManifest.xml 对应的Activity标签的android:theme为
+
+同时，AndroidManifest.xml 对应的Activity标签的android:theme为
+
+```
+android:theme="@style/AppTheme" >
+```
+
+且，style资源文件中的parent为
+
+```
+parent="Theme.AppCompat.Light.DarkActionBar
+```
+
+就会报这个异常。
+
+**问题分析：**
+
+Using `Theme.AppCompat.Light` tells Android that you want the framework to provide an ActionBar for you. However, you are creating your own ActionBar (a `Toolbar`), so you are giving the framework mixed signals as to where you want the ActionBar to come from.
+
+**解决方法：**
+
+**在style.xml中加入：**
+
+**![img](http://images2015.cnblogs.com/blog/1027377/201702/1027377-20170216110105566-1695088420.png)**
+
+在Manifest.xml中，修改theme
+
+![img](http://images2015.cnblogs.com/blog/1027377/201702/1027377-20170216110209722-1185297743.png)
 
 
 
