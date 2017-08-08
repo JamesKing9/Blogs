@@ -2,7 +2,9 @@
 
 H~2~O
 
-<u>decimal point</u>:  小数点
+<u>decimal point</u> ..... 小数点
+
+<u>automatic variables</u> ..... 自动变量
 
 ---
 
@@ -18,12 +20,21 @@ H~2~O
 
 Width and  precision may be omitted from a specification: `%6f` says that the number is to be at least six characters wide; `%.2f` specifies two characters after the decimal point,  but width is not constrained; and `%f` merely says to print the number as floating point.
 
-| %d   | print as decimal integer                 |
-| ---- | ---------------------------------------- |
-| %6d  | print as decimal integer, at least 6 characters |
-| %f   | print as floating point                  |
-| %6f  | print as floating point, at least 6 characters wide |
-|      |                                          |
+| %d    | print as decimal integer                 |
+| ----- | ---------------------------------------- |
+| %6d   | print as decimal integer, at least 6 characters |
+| %f    | print as floating point                  |
+| %6f   | print as floating point, at least 6 characters wide |
+| %.2f  | print as floating point, 2 characters after decimal p |
+| %6.2f | print as floating point, at least 6 wide and 2 after decimal point |
+
+Among others, `printf` also recognizes `%o` for octal, `%x` for hexadecimal, `%c` for character, `%s` for character string and `%%` for itself.
+
+
+
+**Exercise 1-3.**  Modify the temperature conversion program to print a heading above the table.
+
+**Exercise 1-4.**  Write a program to print the corresponding Celsius to Fahrenheit table.
 
 
 

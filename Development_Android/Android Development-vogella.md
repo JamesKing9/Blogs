@@ -1,4 +1,119 @@
-   
+# Glossary
+
+entry ..... 实体
+
+
+
+---
+
+# developer.android.google
+
+[android.google](https://developer.android.com/index.html) 
+
+# Chapter 1:  Platform Architecture
+
+
+
+# Chapter 2:  App Components
+
+
+
+## 2.1  Intents and Intent Filters
+
+
+
+## 2.2  Activities
+
+
+
+### Try It Out:  Use `LauncherActivity` develop the list to launch the `Activity`
+
+
+
+```java
+public class ManiActivity extends LauncherActivity {
+  	String[] names = {"Set app's arguments", "check the breed of soldier"};
+  	Class<?>[] clazzs = {PreferenceActivityTest.class, ExpandableListActivityTest.class};
+  	
+  	@Override
+  	public void onCreate(Bundle savedInstanceState) {
+  		super.onCreate(savedInstanceState);
+  		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
+  		setListAdapter(adapter);
+  	}
+  	
+  	@Override
+  	public Intent intentForPosition(int position) {
+  		return new Intent(MainActivity.this, clazzs[position]);
+  	}
+}
+```
+
+
+
+**How It Works**
+
+
+
+
+
+
+
+## 2.3  Fragments
+
+
+
+## 2.4  Loaders
+
+
+
+
+
+# Chapter 3:  App Resources
+
+
+
+# Chapter 4:  App Manifest
+
+
+
+# Chapter 5:  User Interface
+
+
+
+# Chapter 6:  Animation and Graphics
+
+
+
+# Chapter 7:  Computation
+
+
+
+# Chapter 8:  Media Apps
+
+
+
+# Chapter 9:  Media and Camera
+
+
+
+# Chapter 10:  Location and Sensors
+
+
+
+# Chapter 11:  Connectivity
+
+
+
+# Chapter 12:  Text and Input
+
+
+
+
+
+
+
+ 
 
 
 
