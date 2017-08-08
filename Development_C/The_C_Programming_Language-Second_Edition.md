@@ -354,7 +354,32 @@ fgets reads the next input line (including the newline) from file fp into the ch
 
 
 
-7.8 Miscellaneous Functions
+## 7.8 Miscellaneous Functions
+
+
+
+
+
+# Appendix A
+
+
+
+### A.8.1  Storage Class Specifiers
+
+The storage class specifers are:
+
+```markdown
+storage-class specifier:
+  auto
+  register
+  static
+  extern
+  typedef
+```
+
+
+
+
 
 
 
