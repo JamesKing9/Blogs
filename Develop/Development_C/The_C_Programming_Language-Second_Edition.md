@@ -2,7 +2,9 @@
 
 H~2~O
 
-<u>decimal point</u>:  小数点
+<u>decimal point</u> ..... 小数点
+
+<u>automatic variables</u> ..... 自动变量
 
 ---
 
@@ -18,12 +20,21 @@ H~2~O
 
 Width and  precision may be omitted from a specification: `%6f` says that the number is to be at least six characters wide; `%.2f` specifies two characters after the decimal point,  but width is not constrained; and `%f` merely says to print the number as floating point.
 
-| %d   | print as decimal integer                 |
-| ---- | ---------------------------------------- |
-| %6d  | print as decimal integer, at least 6 characters |
-| %f   | print as floating point                  |
-| %6f  | print as floating point, at least 6 characters wide |
-|      |                                          |
+| %d    | print as decimal integer                 |
+| ----- | ---------------------------------------- |
+| %6d   | print as decimal integer, at least 6 characters |
+| %f    | print as floating point                  |
+| %6f   | print as floating point, at least 6 characters wide |
+| %.2f  | print as floating point, 2 characters after decimal p |
+| %6.2f | print as floating point, at least 6 wide and 2 after decimal point |
+
+Among others, `printf` also recognizes `%o` for octal, `%x` for hexadecimal, `%c` for character, `%s` for character string and `%%` for itself.
+
+
+
+**Exercise 1-3.**  Modify the temperature conversion program to print a heading above the table.
+
+**Exercise 1-4.**  Write a program to print the corresponding Celsius to Fahrenheit table.
 
 
 
@@ -155,9 +166,23 @@ main() {
 
 ---
 
+# Chapter 2:  Types, Operators and Expressions
 
 
-# Chapter 4
+
+# Chapter 3:  Control Flow
+
+
+
+
+
+# Chapter 4:  Functions and Program Structure
+
+
+
+
+
+
 
 
 
@@ -218,11 +243,40 @@ high = n - 1;
 
 
 
+---
+
+# Chapter 5:  Pointers and Arrays
+
+A pointer is a variable that contains the address of a variable. Pointers are much used in C, partly because they are sometimes the only way to express a computation, and partly because they usually lead to more compact and efficient code than can be obtained in other ways. <u>Pointers and arrays are closely related</u>; this chapter also explores this relationship and shows how to exploit it.
 
 
 
 
 
+# Chapter 6:  Structures
+
+
+
+## 6.7  Typedef
+
+C provides a facility called `typedef` for creating new data type names. For example, the declaration
+
+```c
+typedef int Length;
+```
+
+makes the name `Length` a synonym for `int`. The type `Length` can be used in declarations, casts, etc., in exactly the same ways that the `int`  type can be:
+
+```c
+Length len, maxlen;
+Length *lengths[];
+```
+
+
+
+## 6.8  Unions
+
+A `union` is a variable that may hold (at different times) objects of different types and sizes, with the compiler keeping track of size and alignment requirements.
 
 
 
@@ -343,7 +397,34 @@ fgets reads the next input line (including the newline) from file fp into the ch
 
 
 
-7.8 Miscellaneous Functions
+## 7.8 Miscellaneous Functions
+
+
+
+Chapter 8:  The UNIX System Interface
+
+
+
+# Appendix A:  Reference Manual
+
+
+
+### A.8.1  Storage Class Specifiers
+
+The storage class specifers are:
+
+```markdown
+storage-class specifier:
+  auto
+  register
+  static
+  extern
+  typedef
+```
+
+
+
+
 
 
 
@@ -382,4 +463,10 @@ void main() {
   if(!)
 }
 ```
+
+
+
+
+
+## B.6  Diagnostics:  <assert.h>
 
