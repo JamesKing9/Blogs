@@ -166,9 +166,23 @@ main() {
 
 ---
 
+# Chapter 2:  Types, Operators and Expressions
 
 
-# Chapter 4
+
+# Chapter 3:  Control Flow
+
+
+
+
+
+# Chapter 4:  Functions and Program Structure
+
+
+
+
+
+
 
 
 
@@ -229,11 +243,40 @@ high = n - 1;
 
 
 
+---
+
+# Chapter 5:  Pointers and Arrays
+
+A pointer is a variable that contains the address of a variable. Pointers are much used in C, partly because they are sometimes the only way to express a computation, and partly because they usually lead to more compact and efficient code than can be obtained in other ways. <u>Pointers and arrays are closely related</u>; this chapter also explores this relationship and shows how to exploit it.
 
 
 
 
 
+# Chapter 6:  Structures
+
+
+
+## 6.7  Typedef
+
+C provides a facility called `typedef` for creating new data type names. For example, the declaration
+
+```c
+typedef int Length;
+```
+
+makes the name `Length` a synonym for `int`. The type `Length` can be used in declarations, casts, etc., in exactly the same ways that the `int`  type can be:
+
+```c
+Length len, maxlen;
+Length *lengths[];
+```
+
+
+
+## 6.8  Unions
+
+A `union` is a variable that may hold (at different times) objects of different types and sizes, with the compiler keeping track of size and alignment requirements.
 
 
 
@@ -358,9 +401,11 @@ fgets reads the next input line (including the newline) from file fp into the ch
 
 
 
+Chapter 8:  The UNIX System Interface
 
 
-# Appendix A
+
+# Appendix A:  Reference Manual
 
 
 
@@ -418,4 +463,10 @@ void main() {
   if(!)
 }
 ```
+
+
+
+
+
+## B.6  Diagnostics:  <assert.h>
 
