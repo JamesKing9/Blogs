@@ -433,6 +433,16 @@ Chapter 8:  The UNIX System Interface
 
 
 
+## A.2  Lexical conventions
+
+A program consists of one or more translation units stored in files. It is translated in several phases, which are described in <u>Par.A.12</u>. The first phases do low-level lexical transformations, carry out directives introduced by the lines beginning with the `#` character, and perform macro definition and expansion. When the preprocessing of <u>Par.A.12</u> is complete, the program has been reduced to a sequence of tokens.
+
+
+
+
+
+
+
 ### A.8.1  Storage Class Specifiers
 
 The storage class specifers are:
