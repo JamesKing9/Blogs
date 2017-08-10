@@ -255,6 +255,30 @@ A pointer is a variable that contains the address of a variable. Pointers are mu
 
 # Chapter 6:  Structures
 
+A structure is a collection of one or more variables, possibly of different types, grouped together under a single name for convenient handling. (Structure are called "records" in some languages, notably Pascal.) Structures help to organize complicated data, particularly in large programs, because they permit a group of related variables to be treated as a unit instead of as separate entities.
+
+
+
+## 6.1  Basics of Structures
+
+
+
+## 6.2  Structures and Functions
+
+
+
+## 6.3  Arrays of Structures
+
+
+
+## 6.4  Pointers to Structures
+
+
+
+## 6.5  Self-referential Structures
+
+
+
 
 
 ## 6.7  Typedef
