@@ -146,13 +146,16 @@ $
 
 
 
-```flow
+  ```flow
 st=>start: Initial process
-cond=>condition: Fork() 
+op=>operation: Fork()
+cond=>condition: Yes or No?
 e=>end
-```
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+  ```
 
 
-
-  
 
