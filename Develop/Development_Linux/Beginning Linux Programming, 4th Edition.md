@@ -1,3 +1,7 @@
+---
+
+---
+
 
 
 
@@ -8,7 +12,7 @@ Cover:
 
 <img src=".\img\cover.jpg" style="height:520px">
 
-## About the Authors
+# About the Authors
 
 **Neil Matthew** 
 
@@ -18,7 +22,7 @@ Cover:
 
 ---
 
-## Chapter 1: Getting Started
+# Chapter 1: Getting Started
 
 
 
@@ -61,13 +65,13 @@ $
 
 
 
-## Chapter 2: Shell Programming
+# Chapter 2: Shell Programming
 
 Having started this book on programming Linux using C, we now take a detour into writing shell programs. *Why?* Well, Linux isn't like systems where the command-line interface is an afterthought to the graphical interface.
 
 
 
-## Chapter 7:  Data Management 
+# Chapter 7:  Data Management
 
 In earlier chapters, we touched on the subject of resource limits. In this chapter, we're going to look first at ways of managing your resource allocation, then at ways of dealing with files that are accessed by many users more or less simultaneously, and lastly at one tool provided in Linux systems for overcoming the limitations of flat files as a storage medium.
 
@@ -142,7 +146,11 @@ $
 
 
 
-## Chapter 11:
+# Chapter 11:  Processes and Signals
+
+
+
+
 
 
 
