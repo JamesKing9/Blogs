@@ -1,4 +1,4 @@
-# Book Guide myself
+# Glossary
 
 泛型 - Generic Programming
 
@@ -7,6 +7,12 @@
 
 
 # Core Java-10th  Edition
+
+
+
+
+
+
 
 ## Chapter 5: Inheritance
 
