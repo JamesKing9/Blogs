@@ -10,7 +10,9 @@
 
 Cover:
 
-<img src=".\img\cover.jpg" style="height:520px">
+<img src="http://ouqfn1c6k.bkt.clouddn.com/cover.jpg" height="520px"> 
+
+
 
 # About the Authors
 
@@ -156,7 +158,9 @@ $
 
 Let's have a look at how a couple of processes might be arranged within the operating system. If two users, `neil` and `rick`, both run the `grep` program at the same time to look for different strings in different files, the processes being used might look like Figure 11-1.
 
-<img src=".\img\2.jpg"> 
+<img src="http://ouqfn1c6k.bkt.clouddn.com/2.jpg"> 
+
+​      
 
 If you could run the `ps` command as in the following code quickly enough and before the searches had finished, the output might contain something like this:
 
@@ -168,3 +172,7 @@ neil    102   92    0  18:24  tty4  00:00:00  grep kirk trek.txt
 ```
 
 Each process is allocated a unique number, called a *process identifier* or PID. This is usually a positive integer between 2 and 32,768. When a process is started, the next unused number in sequence is chosen and the numbers restart at 2 so that they wrap around. The number 1 is typically reserved for the special `init `process, which manages other processes. We will come back to `init `shortly. Here you see that the two processes started by `neil `and `rick `have been allocated the identifiers 101 and 102  
+
+
+
+ 
