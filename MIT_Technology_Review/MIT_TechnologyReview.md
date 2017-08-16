@@ -1,14 +1,48 @@
 # Glossary
 
-malware ..... 恶意软件
+Edward Thorndike ..... 爱德华·桑代克
 
+psychologist ..... 心理学家
 
+malware -- 恶意软件
+
+Reinforcement Learning -- 增强式学习
+
+Availability ..... 可用性
+
+computer simulation ..... 计算机仿真
+
+maneuver ..... 机动；演习；
+
+four-lane ..... 四车道
+
+tricky thing ..... 棘手的问题
+
+flummox ..... 使混乱
+
+precision ..... 精确的
+
+artificial-intelligence ..... 人工智能
+
+conference ..... 会议
+
+Barcelona ..... 巴塞罗那(西班牙东北部港市，巴塞罗那省省会)
+
+conventional sense ..... 常规意义上
+
+favor ..... 喜欢
+
+subsidiary ..... 附属机构
+
+grasp ..... 理解；控制
+
+optimal configuration ..... 最优配置
 
 ---
 
 
 
-# 									Reinforcement Learning
+# Reinforcement Learning
 
 From:[this](https://d267cvn3rvuq91.cloudfront.net/s/603501/10-breakthrough-technologies-2017-reinforcement-learning/)
 
