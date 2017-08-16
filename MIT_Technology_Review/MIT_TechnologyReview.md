@@ -1,44 +1,4 @@
-# Glossary
-
-Edward Thorndike ..... 爱德华·桑代克
-
-psychologist ..... 心理学家
-
-malware -- 恶意软件
-
-Reinforcement Learning -- 增强式学习
-
-Availability ..... 可用性
-
-computer simulation ..... 计算机仿真
-
-maneuver ..... 机动；演习；
-
-four-lane ..... 四车道
-
-tricky thing ..... 棘手的问题
-
-flummox ..... 使混乱
-
-precision ..... 精确的
-
-artificial-intelligence ..... 人工智能
-
-conference ..... 会议
-
-Barcelona ..... 巴塞罗那(西班牙东北部港市，巴塞罗那省省会)
-
-conventional sense ..... 常规意义上
-
-favor ..... 喜欢
-
-subsidiary ..... 附属机构
-
-grasp ..... 理解；控制
-
-optimal configuration ..... 最优配置
-
----
+H~2~O
 
 
 
@@ -64,16 +24,9 @@ Some of the very earliest artificial-intelligence researchers believed that this
 
 There were few successes over the next few decades. In 1992, Gerald Tesauro, a researcher at IBM, demonstrated a program that used the technique to play backgammon. It became skilled enough to rival the best human players, a landmark achievement in AI. But reinforcement learning proved difficult to scale to more complex problems. “People thought it was a cool idea that didn’t really work,” says David Silver, a researcher at DeepMind in the U.K. and a leading proponent of reinforcement learning today.
 
-That view changed dramatically in March 2016, 
-however. That’s when AlphaGo, a program trained using reinforcement 
-learning, destroyed one of the best Go players of all time, South 
-Korea’s Lee Sedol. The feat was astonishing, because it is virtually 
-impossible to build a good Go-playing program with conventional 
-programming. Not only is the game extremely complex, but even 
-accomplished Go players may struggle to say why certain moves are good 
-or bad, so the principles of the game are difficult to write into code. 
-Most AI researchers had expected that it would take a decade for a 
-computer to play the game as well as an expert human.
+That view changed dramatically in March 2016, however. That’s when AlphaGo, a program trained using reinforcement learning, destroyed one of the best Go players of all time, South Korea’s Lee Sedol. The feat was astonishing, because it is virtually impossible to build a good Go-playing program with conventional 
+programming. Not only is the game extremely complex, but even accomplished Go players may struggle to say why certain moves are good or bad, so the principles of the game are difficult to write into code. 
+Most AI researchers had expected that it would take a decade for a computer to play the game as well as an expert human.
 
 
 
